@@ -269,7 +269,7 @@ class tx_mkmailer_services_Mail extends Tx_Rnbase_Service_Base
             $data['email'] = $mailUid;
             $data['resolver'] = get_class($receiver);
             $data['receivers'] = $receiver->getValueString();
-            tx_rnbase_util_DB::doInsert('tx_mkmailer_receiver', $data, 0);
+            Tx_Rnbase_Database_Connection::getInstance()->doInsert('tx_mkmailer_receiver', $data, 0);
         }
     }
 
@@ -408,7 +408,7 @@ class tx_mkmailer_services_Mail extends Tx_Rnbase_Service_Base
         $data['mailcount'] = $mailQueue->getMailCount() + intval($mailCnt);
         $data['lastupdate'] = tx_rnbase_util_Dates::datetime_tstamp2mysql(time());
         $where = 'uid = ' . $mailQueue->uid;
-        tx_rnbase_util_DB::doUpdate('tx_mkmailer_queue', $where, $data, 0);
+        Tx_Rnbase_Database_Connection::getInstance()->doUpdate('tx_mkmailer_queue', $where, $data, 0);
     }
 
     /**
@@ -424,7 +424,7 @@ class tx_mkmailer_services_Mail extends Tx_Rnbase_Service_Base
         $data['deleted'] = 1;
         $data['lastupdate'] = tx_rnbase_util_Dates::datetime_tstamp2mysql(time());
         $where = 'uid = ' . $mailQueue->uid;
-        tx_rnbase_util_DB::doUpdate('tx_mkmailer_queue', $where, $data, 0);
+        Tx_Rnbase_Database_Connection::getInstance()->doUpdate('tx_mkmailer_queue', $where, $data, 0);
 
             // FIXME: Löschen geht nicht und muss nochmal überarbeitet werden. Beim spoolen einer Mail
             // muss es folgende Optionen geben:
@@ -462,7 +462,7 @@ class tx_mkmailer_services_Mail extends Tx_Rnbase_Service_Base
         if (!array_key_exists('count', $options)) {
             $options['wrapperclass'] = 'tx_mkmailer_models_Queue';
         }
-        $ret = tx_rnbase_util_DB::doSelect($what, $from, $options, 0);
+        $ret = Tx_Rnbase_Database_Connection::getInstance()->doSelect($what, $from, $options, 0);
 
         return array_key_exists('count', $options) ? $ret[0]['cnt'] : $ret;
     }
@@ -482,7 +482,7 @@ class tx_mkmailer_services_Mail extends Tx_Rnbase_Service_Base
         if (!array_key_exists('count', $options)) {
             $options['wrapperclass'] = 'tx_mkmailer_models_Queue';
         }
-        $ret = tx_rnbase_util_DB::doSelect($what, $from, $options, 0);
+        $ret = Tx_Rnbase_Database_Connection::getInstance()->doSelect($what, $from, $options, 0);
 
         return array_key_exists('count', $options) ? $ret[0]['cnt'] : $ret;
     }
@@ -516,7 +516,7 @@ class tx_mkmailer_services_Mail extends Tx_Rnbase_Service_Base
      */
     public function deleteMail($uid)
     {
-        return tx_rnbase_util_DB::doUpdate('tx_mkmailer_queue', 'uid='.$uid, array('deleted' => '1'));
+        return Tx_Rnbase_Database_Connection::getInstance()->doUpdate('tx_mkmailer_queue', 'uid='.$uid, array('deleted' => '1'));
     }
 
     /**
@@ -532,7 +532,7 @@ class tx_mkmailer_services_Mail extends Tx_Rnbase_Service_Base
 
         $options['where'] = 'email=' . $mailQueue->uid;
         $options['enablefieldsoff'] = 1;
-        $ret = tx_rnbase_util_DB::doSelect($what, $from, $options, 0);
+        $ret = Tx_Rnbase_Database_Connection::getInstance()->doSelect($what, $from, $options, 0);
 
         return $ret;
     }
@@ -759,7 +759,7 @@ class tx_mkmailer_services_Mail extends Tx_Rnbase_Service_Base
 
         $options['where'] = $where;
         $options['wrapperclass'] = 'tx_mkmailer_models_Template';
-        $ret = tx_rnbase_util_DB::doSelect($what, $from, $options, 0);
+        $ret = Tx_Rnbase_Database_Connection::getInstance()->doSelect($what, $from, $options, 0);
         if (!count($ret)) {
             throw tx_rnbase::makeInstance(
                 'tx_mkmailer_exceptions_NoTemplateFound',
@@ -786,7 +786,7 @@ class tx_mkmailer_services_Mail extends Tx_Rnbase_Service_Base
 
         $options['where'] = 'email=' . $mailQueue->uid . ' AND LOWER(address) = LOWER(\'' . addslashes($mailAddress) . '\')';
         $options['enablefieldsoff'] = 1;
-        $ret = tx_rnbase_util_DB::doSelect($what, $from, $options, 0);
+        $ret = Tx_Rnbase_Database_Connection::getInstance()->doSelect($what, $from, $options, 0);
 
         return count($ret) > 0;
     }

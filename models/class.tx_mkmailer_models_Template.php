@@ -87,7 +87,7 @@ class tx_mkmailer_models_Template extends tx_rnbase_model_base
 
     /**
      * @param string $addrStr
-     * @return multitype:|multitype:tx_mkmailer_mail_Address
+     * @return array | tx_mkmailer_mail_Address[]
      */
     private function getAddresses($addrStr)
     {

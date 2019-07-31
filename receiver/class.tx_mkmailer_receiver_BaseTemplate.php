@@ -41,6 +41,8 @@ tx_rnbase::load('tx_mkmailer_receiver_Base');
  */
 abstract class tx_mkmailer_receiver_BaseTemplate extends tx_mkmailer_receiver_Base
 {
+    /** @var string */
+    private $email;
 
     /**
      * Liefert die ConfId für den Reciver.

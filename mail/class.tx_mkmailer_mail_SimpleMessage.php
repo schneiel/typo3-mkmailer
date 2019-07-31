@@ -35,39 +35,32 @@ tx_rnbase::load('tx_mkmailer_mail_IMessage');
  */
 class tx_mkmailer_mail_SimpleMessage implements tx_mkmailer_mail_IMessage
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $html = '';
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $text = '';
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $to = array();
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $cc = array();
-    /**
-     * @var array
-     */
+
+    /** @var array */
     private $bcc = array();
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $attachments = array();
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $options = array();
+
+    /** @var string */
+    private $subject;
+
+    /** @var tx_mkmailer_mail_IAddress */
+    private $from;
 
     /**
      * @param array $options

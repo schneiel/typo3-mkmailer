@@ -37,6 +37,11 @@ tx_rnbase::load('tx_mkmailer_mail_IAddress');
  */
 class tx_mkmailer_mail_Address implements tx_mkmailer_mail_IAddress
 {
+    /** @var string */
+    private $address;
+
+    /** @var string */
+    private $name;
 
     /**
      * @param string $address

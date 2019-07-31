@@ -39,10 +39,32 @@ tx_rnbase::load('tx_mkmailer_mail_IMailJob');
 class tx_mkmailer_mail_MailJob implements tx_mkmailer_mail_IMailJob
 {
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $receiver = array();
+
+    /** @var string */
+    private $contentText;
+
+    /** @var string */
+    private $contentHtml;
+
+    /** @var string */
+    private $subject;
+
+    /** @var tx_mkmailer_mail_IAddress */
+    private $from;
+
+    /** @var tx_mkmailer_mail_IAddress[] */
+    private $tos;
+
+    /** @var tx_mkmailer_mail_IAddress[] */
+    private $ccs;
+
+    /** @var tx_mkmailer_mail_IAddress[] */
+    private $bccs;
+
+    /** @var string[] */
+    private $attach;
 
     /**
      * Initialisiert den mailjob.
@@ -163,7 +185,7 @@ class tx_mkmailer_mail_MailJob implements tx_mkmailer_mail_IMailJob
 
     /**
      * Liefert die TO-Empfänger
-     * @return array[tx_mkmailer_mail_IAddress]
+     * @return tx_mkmailer_mail_IAddress[]
      */
     public function getTOs()
     {
@@ -173,7 +195,7 @@ class tx_mkmailer_mail_MailJob implements tx_mkmailer_mail_IMailJob
     /**
      * Setzt die TO-Empfänger. Achtung: schon vorhandene Daten werden überschrieben.
      *
-     * @param array[tx_mkmailer_mail_IAddress] $value
+     * @param tx_mkmailer_mail_IAddress[] $value
      */
     public function setTOs($value)
     {
@@ -190,7 +212,7 @@ class tx_mkmailer_mail_MailJob implements tx_mkmailer_mail_IMailJob
 
     /**
      * Liefert die CC-Empfänger
-     * @return array[tx_mkmailer_mail_IAddress]
+     * @return tx_mkmailer_mail_IAddress[]
      */
     public function getCCs()
     {
@@ -200,7 +222,7 @@ class tx_mkmailer_mail_MailJob implements tx_mkmailer_mail_IMailJob
     /**
      * Setzt die CC-Empfänger. Achtung: schon vorhandene Daten werden überschrieben.
      *
-     * @param array[tx_mkmailer_mail_IAddress] $value
+     * @param tx_mkmailer_mail_IAddress[] $value
      */
     public function setCCs($value)
     {
@@ -217,7 +239,7 @@ class tx_mkmailer_mail_MailJob implements tx_mkmailer_mail_IMailJob
 
     /**
      * Liefert die BCC-Empfänger
-     * @return array[tx_mkmailer_mail_IAddress]
+     * @return tx_mkmailer_mail_IAddress[]
      */
     public function getBCCs()
     {
@@ -227,7 +249,7 @@ class tx_mkmailer_mail_MailJob implements tx_mkmailer_mail_IMailJob
     /**
      * Setzt die CC-Empfänger. Achtung: schon vorhandene Daten werden überschrieben.
      *
-     * @param array[tx_mkmailer_mail_IAddress] $value
+     * @param tx_mkmailer_mail_IAddress[] $value
      */
     public function setBCCs($value)
     {
@@ -244,7 +266,7 @@ class tx_mkmailer_mail_MailJob implements tx_mkmailer_mail_IMailJob
 
     /**
      * Liefert die BCC-Empfänger
-     * @return array[string]
+     * @return string[]
      */
     public function getAttachments()
     {
