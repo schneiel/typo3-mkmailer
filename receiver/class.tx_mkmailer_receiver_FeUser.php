@@ -156,7 +156,7 @@ class tx_mkmailer_receiver_FeUser extends tx_mkmailer_receiver_BaseTemplate
     }
 
     /**
-     * @return string
+     * @return string|false
      */
     protected function getEmail()
     {

@@ -80,7 +80,7 @@ class tx_mkmailer_models_Queue extends tx_rnbase_model_base
     /**
      * Liefert ein Array mit Instanzen von tx_mkmailer_mail_IAttachment.
      *
-     * @return string or array[tx_mkmailer_mail_IAttachment]
+     * @return string|tx_mkmailer_mail_IAttachment[]
      */
     public function getUploads()
     {

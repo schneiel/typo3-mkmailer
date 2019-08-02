@@ -304,7 +304,7 @@ class tx_mkmailer_mod1_FuncOverview extends tx_rnbase_mod_BaseModFunc
      *
      * @param string $varName
      *
-     * @return int
+     * @return int|false
      */
     private function getUidFromRequest($varName)
     {

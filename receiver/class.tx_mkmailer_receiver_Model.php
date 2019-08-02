@@ -60,8 +60,8 @@ abstract class tx_mkmailer_receiver_Model extends tx_mkmailer_receiver_Email
 
     /**
      *
-     * @param string $email
-     * @param int $ratingUid
+     * @param string|null $email
+     * @param int $modelUid
      */
     public function __construct($email = null, $modelUid = null)
     {
@@ -90,7 +90,7 @@ abstract class tx_mkmailer_receiver_Model extends tx_mkmailer_receiver_Email
     }
 
     /**
-     * @param int $rating
+     * @param int $modelUid
      */
     public function setModelUid($modelUid)
     {
