@@ -166,7 +166,7 @@ class tx_mkmailer_mail_SimpleMessage implements tx_mkmailer_mail_IMessage
     /**
      * Adds an attachment file
      *
-     * @param string $file path to file
+     * @param tx_mkmailer_mail_IAttachment $file path to file
      */
     public function addAttachment(tx_mkmailer_mail_IAttachment $file)
     {
@@ -176,7 +176,7 @@ class tx_mkmailer_mail_SimpleMessage implements tx_mkmailer_mail_IMessage
     /**
      * Returns all attachments
      *
-     * @return array[tx_mkmailer_mail_IAttachment]
+     * @return tx_mkmailer_mail_IAttachment[]
      */
     public function getAttachments()
     {
@@ -258,7 +258,7 @@ class tx_mkmailer_mail_SimpleMessage implements tx_mkmailer_mail_IMessage
     /**
      * Setzt die CC Adressen
      *
-     * @param array[tx_mkmailer_mail_IAddress] $addresses
+     * @param tx_mkmailer_mail_IAddress[] $addresses
      */
     public function setCc(array $addresses)
     {
@@ -267,7 +267,7 @@ class tx_mkmailer_mail_SimpleMessage implements tx_mkmailer_mail_IMessage
 
     /**
      * Returns CCs
-     * @return array[tx_mkmailer_mail_IAddress]
+     * @return tx_mkmailer_mail_IAddress[]
      */
     public function getCc()
     {
@@ -286,7 +286,7 @@ class tx_mkmailer_mail_SimpleMessage implements tx_mkmailer_mail_IMessage
     /**
      * Setzt die BCC Adressen
      *
-     * @param array[tx_mkmailer_mail_IAddress] $addresses
+     * @param tx_mkmailer_mail_IAddress[] $addresses
      */
     public function setBcc(array $addresses)
     {
@@ -295,7 +295,7 @@ class tx_mkmailer_mail_SimpleMessage implements tx_mkmailer_mail_IMessage
 
     /**
      * Returns BCCs
-     * @return array[tx_mkmailer_mail_IAddress]
+     * @return tx_mkmailer_mail_IAddress[]
      */
     public function getBcc()
     {

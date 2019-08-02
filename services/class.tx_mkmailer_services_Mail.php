@@ -596,10 +596,8 @@ class tx_mkmailer_services_Mail extends Tx_Rnbase_Service_Base
      * - address : die Mailadresse
      * - addressName : Der Name des Emfängers (optional)
      *
-     * @param string $msg Inhalt der Mail. Die erste Zeile ist das Subject
-     * @param mixed $recipients die Empfänger der Mail als Array oder String
-     * @param string $from
-     * @param array $options
+     * @param tx_mkmailer_mail_IMessage $msg Inhalt der Mail. Die erste Zeile ist das Subject
+     *
      * @throws tx_mkmailer_exceptions_SendMail
      *
      * @todo SwiftMailer unterstützen
@@ -613,10 +611,8 @@ class tx_mkmailer_services_Mail extends Tx_Rnbase_Service_Base
      * Versand einer Mail über den PHPMailer
      * http://phpmailer.sourceforge.net
      *
-     * @param string $msg Inhalt der Mail. Die erste Zeile ist das Subject
-     * @param mixed $$recipients die Empfänger der Mail als Array oder String
-     * @param string $from
-     * @param array $options
+     * @param tx_mkmailer_mail_IMessage $msg Inhalt der Mail. Die erste Zeile ist das Subject
+     *
      * @throws tx_mkmailer_exceptions_SendMail
      */
     private function sendEmail_PHPMailer(tx_mkmailer_mail_IMessage $msg)

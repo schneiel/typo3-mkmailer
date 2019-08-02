@@ -43,7 +43,7 @@ class tx_mkmailer_mail_Factory
     /**
      * Creates a mail job.
      *
-     * @param array[tx_mkmailer_receiver_IMailReceiver] $receiver
+     * @param tx_mkmailer_receiver_IMailReceiver[] $receiver
      * @param tx_mkmailer_models_Template $templateObj
      *
      * @return tx_mkmailer_mail_MailJob
@@ -66,7 +66,7 @@ class tx_mkmailer_mail_Factory
      * @param string $path
      * @param string $name
      * @param string $encoding
-     * @param string $mimeType
+     * @param string|false $mimeType
      *
      * @return tx_mkmailer_mail_IAttachment
      */
@@ -131,10 +131,10 @@ class tx_mkmailer_mail_Factory
     /**
      * Creates an Attachment by the content of the file.
      *
-     * @param string $content
-     * @param string $name
-     * @param string $encoding
-     * @param string $mimeType
+     * @param string       $content
+     * @param string       $name
+     * @param string       $encoding
+     * @param string|false $mimeType
      *
      * @return tx_mkmailer_mail_IAttachment
      */
@@ -159,11 +159,11 @@ class tx_mkmailer_mail_Factory
      *
      * Will be used for images etc, those will be shorn in de mail directly
      *
-     * @param string $path
-     * @param string $embedId Content ID of the attachment.  Use this to identify
-     * @param string $name
-     * @param string $encoding
-     * @param string $mimeType
+     * @param string       $path
+     * @param string       $embedId Content ID of the attachment.  Use this to identify
+     * @param string       $name
+     * @param string       $encoding
+     * @param string|false $mimeType
      *
      * @return tx_mkmailer_mail_IAttachment
      */
@@ -188,11 +188,11 @@ class tx_mkmailer_mail_Factory
      * Creates an instance of the attachment model
      *
      * @param int $type One const tx_mkmailer_mail_IAttachment::TYPE_*
-     * @param string $absPathOrContent
-     * @param string $name
-     * @param string $embedId
-     * @param string $encoding
-     * @param string $mimeType
+     * @param string       $absPathOrContent
+     * @param string       $name
+     * @param string       $embedId
+     * @param string       $encoding
+     * @param string|false $mimeType
      *
      * @return tx_mkmailer_mail_Attachment
      */

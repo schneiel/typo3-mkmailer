@@ -40,7 +40,7 @@ class tx_mkmailer_util_Mails
      *
      * @param string $receiverClass
      * @param int $modelUid
-     * @param string $receiverEmail
+     * @param string $email
      * @param string|tx_mkmailer_models_Template $templateObjectOrKey
      */
     public function sendModelReceiverMail($receiverClass, $modelUid, $email, $templateObjectOrKey)

@@ -70,8 +70,8 @@ class tx_mkmailer_mail_MailJob implements tx_mkmailer_mail_IMailJob
      * Initialisiert den mailjob.
      * Optional können bereits die MeiE-Mail-Empfänger und ein Template mitgegeben werden.
      *
-     * @param   array[tx_mkmailer_receiver_IMailReceiver]   $receiver
-     * @param   tx_mkmailer_models_Template                 $templateObj
+     * @param tx_mkmailer_receiver_IMailReceiver[] $receiver
+     * @param tx_mkmailer_models_Template          $templateObj
      */
     public function __construct(
         array $receiver = array(),

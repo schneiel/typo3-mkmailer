@@ -41,8 +41,10 @@ class tx_mkmailer_util_Misc
      * This is useful for rendering of content in RTE fields where the transformation mode is set to "ts_css" or so.
      * Notice that this requires the use of "css_styled_content" to work right.
      *
-     * @param   string      The input text string to process
-     * @return  string      The processed string
+     * @param string $str The input text string to process
+     *
+     * @return string The processed string
+     *
      * @see TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::parseFunc()
      */
     public static function getRTEText($str)

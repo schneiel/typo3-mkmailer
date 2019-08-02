@@ -80,14 +80,14 @@ interface tx_mkmailer_mail_IMessage
     /**
      * Setzt die CC Adressen
      *
-     * @param array[tx_mkmailer_mail_IAddress] $addresses
+     * @param tx_mkmailer_mail_IAddress[] $addresses
      */
     public function setCc(array $addresses);
 
     /**
      * Setzt die BCC Adressen
      *
-     * @param array[tx_mkmailer_mail_IAddress] $addresses
+     * @param tx_mkmailer_mail_IAddress[] $addresses
      */
     public function setBcc(array $addresses);
 
