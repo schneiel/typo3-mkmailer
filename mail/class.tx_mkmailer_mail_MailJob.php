@@ -63,7 +63,7 @@ class tx_mkmailer_mail_MailJob implements tx_mkmailer_mail_IMailJob
     /** @var tx_mkmailer_mail_IAddress[] */
     private $bccs;
 
-    /** @var string[] */
+    /** @var tx_mkmailer_mail_IAttachment[] */
     private $attach;
 
     /**
@@ -110,7 +110,9 @@ class tx_mkmailer_mail_MailJob implements tx_mkmailer_mail_IMailJob
      */
     public function addReceiver($value)
     {
-        return $this->receiver[] = $value;
+        $this->receiver[] = $value;
+
+        return $this->receiver;
     }
 
     /**
@@ -266,7 +268,7 @@ class tx_mkmailer_mail_MailJob implements tx_mkmailer_mail_IMailJob
 
     /**
      * Liefert die BCC-Empfänger
-     * @return string[]
+     * @return tx_mkmailer_mail_IAttachment[]
      */
     public function getAttachments()
     {
